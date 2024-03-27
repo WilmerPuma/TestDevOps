@@ -1,0 +1,44 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Install dependencies and run tests
+      run: |
+        cd backend
+        npm install
+        npm test
+    
+    - name: Build and push backend Docker image
+      uses: docker/build-push-action@v2
+      with:
+        context: backend
+        push: true
+        tags: username/backend:latest
+      
+    - name: Build and push frontend Docker image
+      uses: docker/build-push-action@v2
+      with:
+        context: frontend
+        push: true
+        tags: username/frontend:latest
+      
+    - name: Deploy to AWS
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.AWS_HOST }}
+        username: ${{ secrets.AWS_USERNAME }}
+        key: ${{ secrets.AWS_PRIVATE_KEY }}
+        script: |
+          docker-compose -f docker-compose.yml up -d
+
