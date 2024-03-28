@@ -6,7 +6,7 @@
 
 ##### Configuración de Contenedores con Docker
 
-En la carpeta docker/, encontrarás los archivos relacionados con la configuración de contenedores utilizando Docker.
+En la carpeta PruebasDevOps/, encontrarás los archivos relacionados con la configuración de contenedores utilizando Docker.
 - Dockerfile.backend: Este archivo Dockerfile define cómo construir la imagen del contenedor para nuestro backend Node.js. Instala las dependencias y configura el entorno para ejecutar la aplicación.
 - Docker-compose.yml: El archivo docker-compose.yml orquesta los contenedores necesarios para ejecutar la aplicación completa, incluyendo el backend y la base de datos MongoDB.
 
