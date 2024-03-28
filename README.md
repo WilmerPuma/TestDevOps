@@ -4,7 +4,7 @@
 En la carpeta terraform/, hemos incluido los archivos necesarios para definir la infraestructura de AWS utilizando Terraform.
 -	main.tf: Este archivo define los recursos de AWS que necesitamos para nuestro entorno, como una instancia EC2 y un grupo de seguridad.
 
-#####Configuración de Contenedores con Docker
+##### Configuración de Contenedores con Docker
 
 En la carpeta docker/, encontrarás los archivos relacionados con la configuración de contenedores utilizando Docker.
 - Dockerfile.backend: Este archivo Dockerfile define cómo construir la imagen del contenedor para nuestro backend Node.js. Instala las dependencias y configura el entorno para ejecutar la aplicación.
